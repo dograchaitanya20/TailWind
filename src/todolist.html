@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>To-Do List</title>
+</head>
+<body class="bg-gray-300 h-screen flex justify-center items-center">
+    <div class="m-50 bg-white p-10 rounded shadow-lg">
+        <h1 class="text-2xl font-bold text-center">My To-Do List</h1>
+        <div class="flex justify-center flex-col items-center">
+            <input type="text" placeholder="Enter your task" id="taskinput" class="border border-blue-500 bg-green-200 rounded m-2 p-2 w-100">
+            <button id="AddTask" class="border border-black-3px bg-blue-400 p-2 w-100 font-bold">Add Task</button>
+        </div> 
+        <ul id="taskList" class="font-bold text-center list-disc m-3po"></ul>
+    </div>
+
+    <script>
+        const taskinput = document.getElementById('taskinput')
+        const AddTask = document.getElementById('AddTask')
+        const taskList = document.getElementById('taskList')
+
+        AddTask.onclick=() => {
+            const task = taskinput.value.trim()
+            if(!task) return
+        
+        //function addTask(){
+        // const task 
+    //  taskinput.value.trim();
+    // if(!task) return
+    // }
+    const li = document.createElement('li')
+    li.textContent = task
+    taskList.appendChild(li)
+    taskinput.value = ''
+        }
+        taskinput.onkeydown = (e) => {
+            if(e.key === 'Enter'){
+                AddTask.click()
+            }
+        }
+    </script>
+    
+</body>
+</html>
